@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { EventosService } from '../services/eventos.service';
+import { Evento } from '../models/evento';
+
 
 @Component({
   selector: 'app-eventos',
@@ -7,9 +11,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventosComponent implements OnInit {
 
-  constructor() { }
+  eventos$: Observable<Evento[]>;
 
-  ngOnInit(): void {
+  constructor(private eventoService: EventosService) {
+  }
+
+  ngOnInit() {
+    this.loadEventos();
+  }
+
+  loadEventos() {
+    this.eventos$ = this.eventoService.getEventos();
+  }
+
+  delete(eventoId) {
+    const ans = confirm('Deseja deletar o evento: ' + eventoId);
+    if (ans) {
+      this.eventoService.deleteEvento(eventoId).subscribe((data) => {
+        this.loadEventos();
+      });
+    }
   }
 
 }

@@ -6,7 +6,7 @@ import { EventoAddEditComponent } from './evento-add-edit/evento-add-edit.compon
 
 
 const routes: Routes = [
-  { path: '', component: EventoComponent, pathMatch: 'full' },
+  { path: '', component: EventosComponent, pathMatch: 'full' },
   { path: 'eventos/:id', component: EventosComponent },
   { path: 'add', component: EventoAddEditComponent },
   { path: 'eventos/edit/:id', component: EventoAddEditComponent },

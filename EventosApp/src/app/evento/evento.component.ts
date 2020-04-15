@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+import { EventosService } from '../services/eventos.service';
+import { Evento } from '../models/evento';
 
 @Component({
   selector: 'app-evento',
@@ -7,9 +11,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventoComponent implements OnInit {
 
-  constructor() { }
+  evento$: Observable<Evento>;
+  eventoId: number;
 
-  ngOnInit(): void {
+  constructor(private eventoService: EventosService, private avRoute: ActivatedRoute) {
+    const idParam = 'id';
+    if (this.avRoute.snapshot.params[idParam]) {
+      this.eventoId = this.avRoute.snapshot.params[idParam];
+    }
+  }
+
+  ngOnInit() {
+    this.loadEvento();
+  }
+
+  loadEvento() {
+    this.evento$ = this.eventoService.getEvento(this.eventoId);
   }
 
 }

@@ -1,1 +1,11 @@
-<p>evento works!</p>
+<ng-container *ngIf="(evento$ | async) as evento; else loading">
+
+    <h1>{{ evento.nomeResponsavel }}</h1>
+    <div>{{ evento.dtInicio }}</div>
+    <ul>
+        <li>{{ evento.dtFim }}</li>
+        <li>{{ evento.nomeSala }}</li>
+    </ul>
+
+</ng-container>
+<ng-template #loading>Carregando...</ng-template>
