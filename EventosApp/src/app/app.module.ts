@@ -3,10 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { EventosComponent } from './eventos/eventos.component';
+import { EventoComponent } from './evento/evento.component';
+import { EventoAddEditComponent } from './evento-add-edit/evento-add-edit.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    EventosComponent,
+    EventoComponent,
+    EventoAddEditComponent
   ],
   imports: [
     BrowserModule,
