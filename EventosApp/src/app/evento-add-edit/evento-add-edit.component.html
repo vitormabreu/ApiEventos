@@ -1,1 +1,25 @@
-<p>evento-add-edit works!</p>
+<h1>{{actionType}} Evento</h1>
+<form [formGroup]="form" (ngSubmit)="save()" #formDir="ngForm" novalidate>
+    <div class="form-group row">
+        <label class=" control-label col-md-12">Responsável pelo evento</label>
+        <div class="col-md-12">
+            <input class="form-control" type="text" formControlName="nomeResponsavel">
+        </div>
+        <span class="text-danger ml-3" *ngIf="nomeResponsavel.invalid && formDir.submitted">
+            Responsável é obrigatório.
+        </span>
+    </div>
+    <div class="form-group row">
+        <label class="control-label col-md-12" for="Body">Body text</label>
+        <div class="col-md-12">
+            <input class="form-control" type="text" formControlName="nomeSala">
+        </div>
+        <span class="text-danger ml-3" *ngIf="nomeSala.invalid && formDir.submitted">
+            Nome da sala é obrigatório.
+        </span>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-success float-right">Salvar</button>
+        <button class="btn btn-secondary float-left" (click)="cancel()">Cancelar</button>
+    </div>
+</form>
