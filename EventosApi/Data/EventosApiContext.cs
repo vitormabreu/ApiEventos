@@ -15,5 +15,7 @@ namespace EventosApi.Data
         }
 
         public DbSet<ApiEventos.Models.Evento> Evento { get; set; }
+
+        public DbSet<ApiEventos.Models.Sala> Sala { get; set; }
     }
 }

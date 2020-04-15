@@ -6,7 +6,6 @@ C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\bin\Debug\n
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\bin\Debug\netcoreapp2.1\EventosApi.runtimeconfig.dev.json
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\bin\Debug\netcoreapp2.1\EventosApi.dll
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\bin\Debug\netcoreapp2.1\EventosApi.pdb
-C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.csprojAssemblyReference.cache
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.RazorAssemblyInfo.cache
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.RazorAssemblyInfo.cs
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.AssemblyInfoInputs.cache
