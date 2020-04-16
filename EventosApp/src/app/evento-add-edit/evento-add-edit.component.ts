@@ -76,6 +76,9 @@ export class EventoAddEditComponent implements OnInit {
   async save() {
     if (!this.form.valid)
       return;
+    
+    if(!this.dateIsValid())
+      return;
 
     let eventos = await this.allEvents();
 
@@ -115,6 +118,17 @@ export class EventoAddEditComponent implements OnInit {
     }
   }
 
+  dateIsValid(): boolean {
+    let dtInicio = this.form.get(this.formdtInicio).value;
+    let dtFim = this.form.get(this.formdtFinal).value;
+
+    if (moment(dtInicio).isAfter(moment(dtFim))){
+      this.toastr.warning('Data inicial não pode ser posterior a data final.')
+      return false;
+    }
+    return true;
+  }
+
   roomIsBusy(evt: Evento, listaEventos: Evento[]): boolean {
     let msmSala = listaEventos.filter(e => e.nomeSala == evt.nomeSala && e.eventoId != evt.eventoId);
 
@@ -124,7 +138,9 @@ export class EventoAddEditComponent implements OnInit {
       for (let i = 0; i < msmSala.length; i++) {
         const item = msmSala[i];
         if (moment(evt.dtInicio).isBetween(item.dtInicio, item.dtFim)
-          || moment(evt.dtFim).isBetween(item.dtInicio, item.dtFim)) {
+          || moment(evt.dtFim).isBetween(item.dtInicio, item.dtFim)
+          || moment(evt.dtInicio).format('DD/MM/YYYY HH:mm:ss') == moment(item.dtInicio).format('DD/MM/YYYY HH:mm:ss')
+          || moment(evt.dtFim).format('DD/MM/YYYY HH:mm:ss') == moment(item.dtFim).format('DD/MM/YYYY HH:mm:ss')) {
           this.toastr.warning(`A ${evt.nomeSala} já está reseravada para esta data no horário de ${moment(item.dtInicio).format('HH:mm')} às ${moment(item.dtFim).format('HH:mm')} .`);
           return true;
         }
