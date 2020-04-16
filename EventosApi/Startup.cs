@@ -43,11 +43,6 @@ namespace EventosApi
 
             services.AddScoped(typeof(IDataRepository<>), typeof(DataRepository<>));
 
-            // In production, the Angular files will be served from this directory
-            //services.AddSpaStaticFiles(configuration =>
-            //{
-            //    configuration.RootPath = "ClientApp/dist";
-            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,8 +65,6 @@ namespace EventosApi
 
             DbSeeder.SeedDb(context);
 
-            //app.UseSpaStaticFiles();
-
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -79,18 +72,6 @@ namespace EventosApi
                     template: "{controller}/{action=Index}/{id?}");
             });
 
-            //app.UseSpa(spa =>
-            //{
-            //    // To learn more about options for serving an Angular SPA from ASP.NET Core,
-            //    // see https://go.microsoft.com/fwlink/?linkid=864501
-
-            //    spa.Options.SourcePath = "ClientApp";
-
-            //    if (env.IsDevelopment())
-            //    {
-            //        spa.UseAngularCliServer(npmScript: "start");
-            //    }
-            //});
         }
     }
 }
