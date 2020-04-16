@@ -25,7 +25,7 @@ export class EventosComponent implements OnInit {
   }
 
   delete(evento: Evento) {
-    const ans = confirm(`Deseja deletar o evento de: ${evento.nomeResponsavel}`);
+    const ans = confirm(`Deseja deletar o evento de ${evento.nomeResponsavel} na ${evento.nomeSala}?`);
     if (ans) {
       this.eventoService.deleteEvento(evento.eventoId).subscribe((data) => {
         this.loadEventos();

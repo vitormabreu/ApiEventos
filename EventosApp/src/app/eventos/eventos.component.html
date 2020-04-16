@@ -2,7 +2,7 @@
     <h1 class="display-4 text-center">Eventos</h1>
     <hr>
 
-    <p *ngIf="!(eventos$ | async)"><em>Loading...</em></p>
+    <p *ngIf="!(eventos$ | async)"><em>Carregando...</em></p>
     <p>
         <a [routerLink]="['/add']" class="btn btn-outline-success float-right mb-3">Criar Evento</a>
     </p>
