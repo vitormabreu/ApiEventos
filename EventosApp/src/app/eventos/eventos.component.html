@@ -1,33 +1,36 @@
-<h1>Eventos</h1>
+<div class="jumbtron">
+    <h1 class="display-4 text-center">Eventos</h1>
+    <hr>
 
-<p *ngIf="!(eventos$ | async)"><em>Loading...</em></p>
-<p>
-    <a [routerLink]="['/add']" class="btn btn-primary float-right mb-3">Criar Evento</a>
-</p>
+    <p *ngIf="!(eventos$ | async)"><em>Loading...</em></p>
+    <p>
+        <a [routerLink]="['/add']" class="btn btn-outline-success float-right mb-3">Criar Evento</a>
+    </p>
 
-<table class="table table-sm table-hover" *ngIf="(eventos$ | async)?.length>0">
-    <thead>
-        <tr>
-            <!-- <th>#</th> -->
-            <th>Responsável</th>
-            <th>Sala</th>
-            <th>Data Início</th>
-            <th>Data Fim</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let evento of (eventos$ | async)">
-            <!-- <td><a [routerLink]="['/eventos/', evento.eventoId]">{{ evento.eventoId }}</a></td> -->
-            <td>{{ evento.nomeResponsavel }}</td>
-            <td>{{ evento.nomeSala }}</td>
-            <td>{{ evento.dtInicio | date: "dd/MM/y HH:mm" }}</td>
-            <td>{{ evento.dtFim | date: "dd/MM/y HH:mm" }}</td>
-            <td><a [routerLink]="['/eventos/edit/', evento.eventoId]"
-                    class="btn btn-primary btn-sm float-right">Editar</a></td>
-            <td><a [routerLink]="" (click)="delete(evento)"
-                    class="btn btn-danger btn-sm float-right">Deletar</a></td>
-        </tr>
-    </tbody>
-</table>
+    <table class="table table-sm table-hover" *ngIf="(eventos$ | async)?.length>0">
+        <thead>
+            <tr>
+                <!-- <th>#</th> -->
+                <th>Responsável</th>
+                <th>Sala</th>
+                <th>Data Início</th>
+                <th>Data Fim</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let evento of (eventos$ | async)">
+                <!-- <td><a [routerLink]="['/eventos/', evento.eventoId]">{{ evento.eventoId }}</a></td> -->
+                <td>{{ evento.nomeResponsavel }}</td>
+                <td>{{ evento.nomeSala }}</td>
+                <td>{{ evento.dtInicio | date: "dd/MM/y HH:mm" }}</td>
+                <td>{{ evento.dtFim | date: "dd/MM/y HH:mm" }}</td>
+                <td><a [routerLink]="['/eventos/edit/', evento.eventoId]"
+                        class="btn btn-outline-primary btn-sm float-right">Editar</a></td>
+                <td><a [routerLink]="" (click)="delete(evento)" class="btn btn-outline-danger btn-sm float-right">Deletar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
