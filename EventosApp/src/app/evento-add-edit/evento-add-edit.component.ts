@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { EventosService } from '../services/eventos.service';
+import { SalasService } from '../services/salas.service';
 import { Evento } from '../models/evento';
 
 @Component({
@@ -18,11 +19,12 @@ export class EventoAddEditComponent implements OnInit {
   formdtInicio: string;
   formdtFinal: string;
   eventoId: number;
+  salas: any;
   errorMessage: any;
   existingEvento: Evento;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private eventosService: EventosService, private formBuilder: FormBuilder, private avRoute: ActivatedRoute, private router: Router) {
+  constructor(private eventosService: EventosService, private salasService: SalasService, private formBuilder: FormBuilder, private avRoute: ActivatedRoute, private router: Router) {
     const idParam = 'id';
     this.actionType = 'Criar';
     this.formResponsavel = 'nomeResponsavel';
@@ -45,6 +47,11 @@ export class EventoAddEditComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.salasService.getSalas()
+      .subscribe(data => (
+        this.salas = data
+      ));
 
     if (this.eventoId > 0) {
       this.actionType = 'Editar';
