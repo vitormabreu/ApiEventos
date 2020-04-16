@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { EventosService } from '../services/eventos.service';
 import { SalasService } from '../services/salas.service';
 import { Evento } from '../models/evento';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-evento-add-edit',
@@ -92,8 +93,8 @@ export class EventoAddEditComponent implements OnInit {
     if (this.actionType === 'Editar') {
       let evento: Evento = {
         eventoId: this.existingEvento.eventoId,
-        dtInicio: this.existingEvento.dtInicio,
-        dtFim: this.existingEvento.dtFim,
+        dtInicio: this.form.get(this.formdtInicio).value,
+        dtFim: this.form.get(this.formdtFinal).value,
         nomeResponsavel: this.form.get(this.formResponsavel).value,
         nomeSala: this.form.get(this.formSala).value
       };
@@ -113,13 +114,19 @@ export class EventoAddEditComponent implements OnInit {
 
     if (msmSala.length == 0)
       return false;
+    else {
+      for (let i = 0; i < msmSala.length; i++) {
+        const item = msmSala[i];
+        if (moment(evt.dtInicio).isBetween(item.dtInicio, item.dtFim)
+          || moment(evt.dtFim).isBetween(item.dtInicio, item.dtFim)) {
+          alert(`A ${evt.nomeSala} já está reseravada para esta data no horário de ${moment(item.dtInicio).format('HH:mm')} às ${moment(item.dtFim).format('HH:mm')} .`);
+          return true;
+        }
+      }
 
-    for (let i = 0; i < msmSala.length; i++) {
-      const sala = msmSala[i];
-      
+      return false;
     }
-    
-    return false;
+
   }
 
   allEvents(): any {
