@@ -11,6 +11,9 @@ namespace EventosApi.Data
         public static void SeedDb(EventosApiContext context)
         {
             context.Database.EnsureCreated();
+            if (context.Sala.Count() > 0)
+                return;
+
             context.Sala.Add(
                 new Sala() { NomeSala = "Sala Cidade Nobre" }
                 );

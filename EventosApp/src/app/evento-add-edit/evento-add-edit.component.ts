@@ -66,10 +66,11 @@ export class EventoAddEditComponent implements OnInit {
     }
   }
 
-  save() {
-    if (!this.form.valid) {
+  async save() {
+    if (!this.form.valid)
       return;
-    }
+
+    let eventos = await this.allEvents();
 
     if (this.actionType === 'Criar') {
       let evento: Evento = {
@@ -78,6 +79,9 @@ export class EventoAddEditComponent implements OnInit {
         nomeResponsavel: this.form.get(this.formResponsavel).value,
         nomeSala: this.form.get(this.formSala).value
       };
+
+      if (this.roomIsBusy(evento, eventos))
+        return;
 
       this.eventosService.saveEvento(evento)
         .subscribe((data) => {
@@ -93,12 +97,40 @@ export class EventoAddEditComponent implements OnInit {
         nomeResponsavel: this.form.get(this.formResponsavel).value,
         nomeSala: this.form.get(this.formSala).value
       };
+
+      if (this.roomIsBusy(evento, eventos))
+        return;
+
       this.eventosService.updateEvento(evento.eventoId, evento)
         .subscribe((data) => {
           this.router.navigate(['/eventos']);
         });
     }
   }
+
+  roomIsBusy(evt: Evento, listaEventos: Evento[]): boolean {
+    let msmSala = listaEventos.filter(e => e.nomeSala == evt.nomeSala && e.eventoId != evt.eventoId);
+
+    if (msmSala.length == 0)
+      return false;
+
+    for (let i = 0; i < msmSala.length; i++) {
+      const sala = msmSala[i];
+      
+    }
+    
+    return false;
+  }
+
+  allEvents(): any {
+    return new Promise((resolve) => {
+      this.eventosService.getEventos().subscribe(
+        (data: any) => {
+          resolve(data)
+        });
+    });
+  }
+
 
   cancel() {
     this.router.navigate(['/']);

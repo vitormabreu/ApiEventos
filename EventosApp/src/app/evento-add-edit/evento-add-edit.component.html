@@ -25,7 +25,7 @@
         <div class="col-md-6">
             <label class="control-label col-md-12" for="Body">Data Início</label>
             <div>
-                <input class="form-control" type="date" formControlName="dtInicio">
+                <input class="form-control" type="datetime-local" formControlName="dtInicio">
             </div>
             <span class="text-danger ml-3" *ngIf="dtInicio.invalid && formDir.submitted">
                 Data Início é obrigatório.
@@ -35,7 +35,7 @@
         <div class="col-md-6">
             <label class="control-label col-md-12" for="Body">Data Fim</label>
             <div>
-                <input class="form-control" type="date" formControlName="dtFinal">
+                <input class="form-control" type="datetime-local" formControlName="dtFinal">
             </div>
             <span class="text-danger ml-3" *ngIf="dtFinal.invalid && formDir.submitted">
                 Data Fim é obrigatório.
