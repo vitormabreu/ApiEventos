@@ -74,7 +74,7 @@ export class EventoAddEditComponent implements OnInit {
 
       this.eventosService.saveEvento(evento)
         .subscribe((data) => {
-          this.router.navigate(['/blogpost', data.eventoId]);
+          this.router.navigate(['/eventos', data.eventoId]);
         });
     }
 
@@ -88,7 +88,7 @@ export class EventoAddEditComponent implements OnInit {
       };
       this.eventosService.updateEvento(evento.eventoId, evento)
         .subscribe((data) => {
-          this.router.navigate([this.router.url]);
+          this.router.navigate(['/eventos']);
         });
     }
   }
