@@ -13,8 +13,10 @@ export class EventoAddEditComponent implements OnInit {
 
   form: FormGroup;
   actionType: string;
-  formNomeResponsavel: string;
-  formNomeSala: string;
+  formResponsavel: string;
+  formSala: string;
+  formdtInicio: string;
+  formdtFinal: string;
   eventoId: number;
   errorMessage: any;
   existingEvento: Evento;
@@ -23,8 +25,10 @@ export class EventoAddEditComponent implements OnInit {
   constructor(private eventosService: EventosService, private formBuilder: FormBuilder, private avRoute: ActivatedRoute, private router: Router) {
     const idParam = 'id';
     this.actionType = 'Criar';
-    this.formNomeResponsavel = 'nomeResponsavel';
-    this.formNomeSala = 'nomeSala';
+    this.formResponsavel = 'nomeResponsavel';
+    this.formSala = 'nomeSala';
+    this.formdtInicio = 'dtInicio';
+    this.formdtFinal = 'dtFinal';
     if (this.avRoute.snapshot.params[idParam]) {
       this.eventoId = this.avRoute.snapshot.params[idParam];
     }
@@ -34,8 +38,10 @@ export class EventoAddEditComponent implements OnInit {
         eventoId: 0,
         nomeResponsavel: ['', [Validators.required]],
         nomeSala: ['', [Validators.required]],
+        dtInicio: ['', [Validators.required]],
+        dtFinal: ['', [Validators.required]],
       }
-    )
+    );
   }
 
   ngOnInit() {
@@ -45,8 +51,10 @@ export class EventoAddEditComponent implements OnInit {
       this.eventosService.getEvento(this.eventoId)
         .subscribe(data => (
           this.existingEvento = data,
-          this.form.controls[this.formNomeResponsavel].setValue(data.nomeResponsavel),
-          this.form.controls[this.formNomeSala].setValue(data.nomeSala)
+          this.form.controls[this.formResponsavel].setValue(data.nomeResponsavel),
+          this.form.controls[this.formSala].setValue(data.nomeSala),
+          this.form.controls[this.formdtInicio].setValue(data.dtInicio),
+          this.form.controls[this.formdtFinal].setValue(data.dtFim)
         ));
     }
   }
@@ -58,10 +66,10 @@ export class EventoAddEditComponent implements OnInit {
 
     if (this.actionType === 'Criar') {
       let evento: Evento = {
-        dtInicio: new Date(),
-        dtFim: new Date(),
-        nomeResponsavel: this.form.get(this.formNomeResponsavel).value,
-        nomeSala: this.form.get(this.formNomeSala).value
+        dtInicio: this.form.get(this.formdtInicio).value,
+        dtFim: this.form.get(this.formdtFinal).value,
+        nomeResponsavel: this.form.get(this.formResponsavel).value,
+        nomeSala: this.form.get(this.formSala).value
       };
 
       this.eventosService.saveEvento(evento)
@@ -75,8 +83,8 @@ export class EventoAddEditComponent implements OnInit {
         eventoId: this.existingEvento.eventoId,
         dtInicio: this.existingEvento.dtInicio,
         dtFim: this.existingEvento.dtFim,
-        nomeResponsavel: this.form.get(this.formNomeResponsavel).value,
-        nomeSala: this.form.get(this.formNomeSala).value
+        nomeResponsavel: this.form.get(this.formResponsavel).value,
+        nomeSala: this.form.get(this.formSala).value
       };
       this.eventosService.updateEvento(evento.eventoId, evento)
         .subscribe((data) => {
@@ -89,7 +97,9 @@ export class EventoAddEditComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  get nomeResponsavel() { return this.form.get(this.formNomeResponsavel); }
-  get nomeSala() { return this.form.get(this.formNomeSala); }
+  get nomeResponsavel() { return this.form.get(this.formResponsavel); }
+  get nomeSala() { return this.form.get(this.formSala); }
+  get dtInicio() { return this.form.get(this.formdtInicio); }
+  get dtFinal() { return this.form.get(this.formdtFinal); }
 
 }

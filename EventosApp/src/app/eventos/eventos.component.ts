@@ -24,10 +24,10 @@ export class EventosComponent implements OnInit {
     this.eventos$ = this.eventoService.getEventos();
   }
 
-  delete(eventoId) {
-    const ans = confirm('Deseja deletar o evento: ' + eventoId);
+  delete(evento: Evento) {
+    const ans = confirm(`Deseja deletar o evento de: ${evento.nomeResponsavel}`);
     if (ans) {
-      this.eventoService.deleteEvento(eventoId).subscribe((data) => {
+      this.eventoService.deleteEvento(evento.eventoId).subscribe((data) => {
         this.loadEventos();
       });
     }

@@ -8,26 +8,26 @@
 <table class="table table-sm table-hover" *ngIf="(eventos$ | async)?.length>0">
     <thead>
         <tr>
-            <th>#</th>
-            <th>Title</th>
-            <th>Creator</th>
-            <th>Date</th>
+            <!-- <th>#</th> -->
+            <th>Responsável</th>
+            <th>Sala</th>
+            <th>Data Início</th>
+            <th>Data Fim</th>
             <th></th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let evento of (eventos$ | async)">
-            <td>{{ evento.eventoId }}</td>
-            <td><a [routerLink]="['/eventos/', evento.eventoId]">{{ evento.eventoId }}</a></td>
+            <!-- <td><a [routerLink]="['/eventos/', evento.eventoId]">{{ evento.eventoId }}</a></td> -->
             <td>{{ evento.nomeResponsavel }}</td>
             <td>{{ evento.nomeSala }}</td>
             <td>{{ evento.dtInicio | date: "dd/MM/y" }}</td>
             <td>{{ evento.dtFim | date: "dd/MM/y" }}</td>
             <td><a [routerLink]="['/eventos/edit/', evento.eventoId]"
-                    class="btn btn-primary btn-sm float-right">Edit</a></td>
-            <td><a [routerLink]="" (click)="delete(evento.eventoId)"
-                    class="btn btn-danger btn-sm float-right">Delete</a></td>
+                    class="btn btn-primary btn-sm float-right">Editar</a></td>
+            <td><a [routerLink]="" (click)="delete(evento)"
+                    class="btn btn-danger btn-sm float-right">Deletar</a></td>
         </tr>
     </tbody>
 </table>
