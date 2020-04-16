@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { EventosService } from '../services/eventos.service';
 import { SalasService } from '../services/salas.service';
 import { Evento } from '../models/evento';
+import { ToastrService } from 'ngx-toastr';
 import * as moment from 'moment';
 
 @Component({
@@ -25,7 +26,12 @@ export class EventoAddEditComponent implements OnInit {
   existingEvento: Evento;
 
   // tslint:disable-next-line: max-line-length
-  constructor(private eventosService: EventosService, private salasService: SalasService, private formBuilder: FormBuilder, private avRoute: ActivatedRoute, private router: Router) {
+  constructor(private eventosService: EventosService,
+    private toastr: ToastrService,
+    private salasService: SalasService,
+    private formBuilder: FormBuilder,
+    private avRoute: ActivatedRoute,
+    private router: Router) {
     const idParam = 'id';
     this.actionType = 'Criar';
     this.formResponsavel = 'nomeResponsavel';
@@ -119,7 +125,7 @@ export class EventoAddEditComponent implements OnInit {
         const item = msmSala[i];
         if (moment(evt.dtInicio).isBetween(item.dtInicio, item.dtFim)
           || moment(evt.dtFim).isBetween(item.dtInicio, item.dtFim)) {
-          alert(`A ${evt.nomeSala} já está reseravada para esta data no horário de ${moment(item.dtInicio).format('HH:mm')} às ${moment(item.dtFim).format('HH:mm')} .`);
+          this.toastr.warning(`A ${evt.nomeSala} já está reseravada para esta data no horário de ${moment(item.dtInicio).format('HH:mm')} às ${moment(item.dtFim).format('HH:mm')} .`);
           return true;
         }
       }
