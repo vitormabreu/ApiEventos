@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\vitin\\OneDrive\\Documents\\Repositorios\\EventosApi\\EventosApi\\EventosApi.csproj": {}
+    "C:\\Users\\Paula Ventura\\Documents\\Repositorios\\ApiEventos\\EventosApi\\EventosApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\vitin\\OneDrive\\Documents\\Repositorios\\EventosApi\\EventosApi\\EventosApi.csproj": {
+    "C:\\Users\\Paula Ventura\\Documents\\Repositorios\\ApiEventos\\EventosApi\\EventosApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\vitin\\OneDrive\\Documents\\Repositorios\\EventosApi\\EventosApi\\EventosApi.csproj",
+        "projectUniqueName": "C:\\Users\\Paula Ventura\\Documents\\Repositorios\\ApiEventos\\EventosApi\\EventosApi.csproj",
         "projectName": "EventosApi",
-        "projectPath": "C:\\Users\\vitin\\OneDrive\\Documents\\Repositorios\\EventosApi\\EventosApi\\EventosApi.csproj",
-        "packagesPath": "C:\\Users\\vitin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\vitin\\OneDrive\\Documents\\Repositorios\\EventosApi\\EventosApi\\obj\\",
+        "projectPath": "C:\\Users\\Paula Ventura\\Documents\\Repositorios\\ApiEventos\\EventosApi\\EventosApi.csproj",
+        "packagesPath": "C:\\Users\\Paula Ventura\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Paula Ventura\\Documents\\Repositorios\\ApiEventos\\EventosApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\vitin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Paula Ventura\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

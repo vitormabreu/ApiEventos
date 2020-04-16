@@ -15,3 +15,21 @@ C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\obj\Debug\n
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.pdb
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.genruntimeconfig.cache
 C:\Users\vitin\OneDrive\Documents\Repositorios\EventosApi\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.csproj.CoreCompileInputs.cache
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\bin\Debug\netcoreapp2.1\appsettings.Development.json
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\bin\Debug\netcoreapp2.1\appsettings.json
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\bin\Debug\netcoreapp2.1\Properties\launchSettings.json
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\bin\Debug\netcoreapp2.1\EventosApi.deps.json
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\bin\Debug\netcoreapp2.1\EventosApi.runtimeconfig.json
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\bin\Debug\netcoreapp2.1\EventosApi.runtimeconfig.dev.json
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\bin\Debug\netcoreapp2.1\EventosApi.dll
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\bin\Debug\netcoreapp2.1\EventosApi.pdb
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.csprojAssemblyReference.cache
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.csproj.CoreCompileInputs.cache
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.RazorAssemblyInfo.cache
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.RazorAssemblyInfo.cs
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.AssemblyInfoInputs.cache
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.AssemblyInfo.cs
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.RazorTargetAssemblyInfo.cache
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.dll
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.pdb
+C:\Users\Paula Ventura\Documents\Repositorios\ApiEventos\EventosApi\obj\Debug\netcoreapp2.1\EventosApi.genruntimeconfig.cache
